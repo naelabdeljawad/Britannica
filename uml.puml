@@ -1,0 +1,224 @@
+@startuml
+class com.definitions.TestBase {
++ WebDriver chromeDriver
+# <<Create>> TestBase()
++ WebDriver createDriver()
++ void closeDriver()
+}
+interface com.clients.Client {
++ WebDriver initClient()
+}
+class com.browsers.EventsListener {
++ EventFiringWebDriver registerWebDriverToListener(WebDriver)
+}
+class com.launcher.BritannicaTestScenarioLauncher {
+}
+class pom.components.Header {
+- WebElement pageContainer
+- WebElement startShoppingButton
+- WebElement logo
+- WebElement registerButton
+- WebElement cartButton
+- WebElement loginButton
+- WebElement searchInput
+- WebElement searchIconButton
++ <<Create>> Header(WebDriver)
++ boolean clickLogin()
++ boolean clickCartQuantity()
++ boolean search(String)
++ boolean isPageDisplayed()
+}
+class com.definitions.SOLID_BritannicaDefinitions {
+- {static} String baseURL
+- HomePage homePage
+- Header header
+- LoginComponent loginComponent
+- Results results
+- ResultsFilters resultsFilters
+- Cart cart
+- double calculatedTotalPrice
++ {static} void setup()
++ void i_open_shufersal_home_page()
++ void i_login_to_shufersal_website_with_username_and_password(String,String)
++ void i_search_product_name(String)
++ void i_filter_the_results_by_price_from_low_to_high()
++ void i_add_product_to_cart_with_keyword(String)
++ void i_calculate_the_total_price_in_cart_with_delivery_fee()
++ void i_check_total_price_in_cart_if_equals_calculated_price()
++ void afterAll()
+}
+class com.browsers.WebEventListener {
++ void beforeAlertAccept(WebDriver)
++ void afterAlertAccept(WebDriver)
++ void afterAlertDismiss(WebDriver)
++ void beforeAlertDismiss(WebDriver)
++ void beforeNavigateTo(String,WebDriver)
++ void afterNavigateTo(String,WebDriver)
++ void beforeNavigateBack(WebDriver)
++ void afterNavigateBack(WebDriver)
++ void beforeNavigateForward(WebDriver)
++ void afterNavigateForward(WebDriver)
++ void beforeNavigateRefresh(WebDriver)
++ void afterNavigateRefresh(WebDriver)
++ void beforeFindBy(By,WebElement,WebDriver)
++ void afterFindBy(By,WebElement,WebDriver)
++ void beforeClickOn(WebElement,WebDriver)
++ void afterClickOn(WebElement,WebDriver)
++ void beforeChangeValueOf(WebElement,WebDriver,CharSequence[])
++ void afterChangeValueOf(WebElement,WebDriver,CharSequence[])
++ void beforeScript(String,WebDriver)
++ void afterScript(String,WebDriver)
++ void beforeSwitchToWindow(String,WebDriver)
++ void afterSwitchToWindow(String,WebDriver)
++ void onException(Throwable,WebDriver)
++ void onTestStart(ITestResult)
++ void onTestSuccess(ITestResult)
++ void onTestFailure(ITestResult)
++ void onTestSkipped(ITestResult)
++ void onTestFailedButWithinSuccessPercentage(ITestResult)
++ void onStart(ITestContext)
++ void onFinish(ITestContext)
++ void afterGetScreenshotAs(OutputType<X>,X)
++ void beforeGetScreenshotAs(OutputType<X>)
++ void afterGetText(WebElement,WebDriver,String)
++ void beforeGetText(WebElement,WebDriver)
+}
+class com.CommonUtils {
++ {static} void clickByJS(WebElement,WebDriver)
++ {static} double getDoubleFromNoisyString(String)
++ {static} void sleep(int)
++ {static} String getCurrentTimeDate()
++ {static} int getRandomNumber(int,int)
++ {static} String getRandomString(int)
+}
+class com.browsers.BrowserService {
++ ChromeDriverService startService()
+}
+class com.clients.Mobile {
++ WebDriver initClient()
+}
+abstract class com.clients.AbstractWeb {
++ {abstract}WebDriver initBrowser()
++ WebDriver initClient()
+}
+class pom.components.ResultsFilters {
+- WebElement resultsContainer
+- WebElement filterSelector
++ <<Create>> ResultsFilters(WebDriver)
++ boolean selectFilterOrder(int)
++ boolean isPageDisplayed()
+}
+class pom.components.Cart {
+- WebElement cartContainer
+- List<WebElement> products
+- WebElement totalPrice
+- WebElement deliveryFee
+- List<WebElement> productsPrices
++ <<Create>> Cart(WebDriver)
++ double getTotalPriceInCart()
++ double getCalculatedPriceInCart()
++ boolean isPageDisplayed()
+}
+class com.Log {
+~ {static} Logger logger
++ {static} void debug(Object)
++ {static} void error(Object)
++ {static} void fatal(Object)
++ {static} void info(Object)
++ {static} void trace(Object)
++ {static} void warn(Object)
+}
+abstract class pom.AbstractPage {
++ FluentWait<WebDriver> wait
+# WebDriver chromeDriver
+# <<Create>> AbstractPage(WebDriver)
++ WebDriver getWebDriver()
++ {abstract}boolean isPageDisplayed()
+}
+class pom.HomePage {
+- WebElement pageContainer
++ <<Create>> HomePage(WebDriver)
++ boolean openShufersalHomePage()
++ boolean isPageDisplayed()
+}
+class com.PropertiesReader {
+- FileInputStream inputStream
+- {static} PropertiesReader propertiesReader
++ <<Create>> PropertiesReader()
++ {static} PropertiesReader getInstance()
++ String getProperty(String)
++ String getProperty(String,String)
+- String getPropertyValue(String)
+- String getPropertyValue(String,String)
+}
+class com.definitions.Hook {
+- void initTests()
+- void closeDriver()
+}
+class com.clients.Desktop {
++ WebDriver initClient()
+}
+class com.launcher.SOLIS_BritannicaTestScenarioLauncher {
+}
+class pom.components.LoginComponent {
+- WebElement loginFormContainer
+- WebElement loginDropdown
+- WebElement usernameTextField
+- WebElement passwordTextField
+- WebElement loginButton
+- WebElement loggedInUserName
++ <<Create>> LoginComponent(WebDriver)
++ boolean doLogin(String,String)
++ boolean isLoggedIn()
++ boolean isPageDisplayed()
+}
+interface com.browsers.Browser {
++ WebDriver initBrowser()
+}
+class com.browsers.FireFox {
++ WebDriver initBrowser()
+}
+class com.browsers.BrowserCapabilities {
++ ChromeOptions getBrowserCapabilities()
+}
+class com.definitions.SOLID_TestBase {
++ WebDriver chromeDriver
+# Chrome chrome
+# <<Create>> SOLID_TestBase()
++ WebDriver createDriver()
++ void closeDriver()
+}
+class pom.components.Results {
+- WebElement filtersContainer
+- List<WebElement> addToCartButtons
++ <<Create>> Results(WebDriver)
++ boolean clickAddProductToCart(String)
+- int getIndexOfProductByKeyword(String)
++ boolean isPageDisplayed()
+}
+class com.browsers.Chrome {
+- ChromeDriver chromeDriver
+- ChromeDriverService chromeDriverService
++ WebDriver initBrowser()
++ void closeDriver()
+}
+
+
+io.cucumber.testng.AbstractTestNGCucumberTests <|-- com.launcher.BritannicaTestScenarioLauncher
+pom.AbstractPage <|-- pom.components.Header
+com.definitions.SOLID_TestBase <|-- com.definitions.SOLID_BritannicaDefinitions
+org.openqa.selenium.support.events.WebDriverEventListener <|.. com.browsers.WebEventListener
+org.testng.ITestListener <|.. com.browsers.WebEventListener
+com.clients.Client <|.. com.clients.Mobile
+com.browsers.Browser <|.. com.clients.AbstractWeb
+com.clients.Client <|.. com.clients.AbstractWeb
+pom.AbstractPage <|-- pom.components.ResultsFilters
+pom.AbstractPage <|-- pom.components.Cart
+pom.AbstractPage <|-- pom.HomePage
+com.clients.Client <|.. com.clients.Desktop
+io.cucumber.testng.AbstractTestNGCucumberTests <|-- com.launcher.SOLIS_BritannicaTestScenarioLauncher
+pom.AbstractPage <|-- pom.components.LoginComponent
+com.clients.AbstractWeb <|-- com.browsers.FireFox
+pom.AbstractPage <|-- pom.components.Results
+com.clients.AbstractWeb <|-- com.browsers.Chrome
+@enduml

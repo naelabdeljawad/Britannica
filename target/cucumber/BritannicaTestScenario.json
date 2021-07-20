@@ -1,0 +1,161 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 7263548000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I open shufersal home page",
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_open_shufersal_home_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-07-20T19:57:41.565Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2553000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.setup()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Britannica Test Scenario",
+        "description": "",
+        "id": "this-is-a-feature-file;britannica-test-scenario",
+        "after": [
+          {
+            "result": {
+              "duration": 204364000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.afterAll()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6818451000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I login to shufersal website with username \"nael.abdeljawad@gmail.com\" and password \"Nael@supermarket\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"nael.abdeljawad@gmail.com\"",
+                  "offset": 43
+                },
+                {
+                  "val": "\"Nael@supermarket\"",
+                  "offset": 84
+                }
+              ],
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_login_to_shufersal_website_with_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3451029000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I search product name \"חלב\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"חלב\"",
+                  "offset": 22
+                }
+              ],
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_search_product_name(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 243640000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I filter the results by price from low to high",
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_filter_the_results_by_price_from_low_to_high()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 580346000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I add product to cart with keyword \"חלב\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"חלב\"",
+                  "offset": 35
+                }
+              ],
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_add_product_to_cart_with_keyword(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44370000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I calculate the total price in cart with delivery fee",
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_calculate_the_total_price_in_cart_with_delivery_fee()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 21065000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I check total price in cart if equals calculated price",
+            "match": {
+              "location": "com.definitions.SOLID_BritannicaDefinitions.i_check_total_price_in_cart_if_equals_calculated_price()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "This is a feature file",
+    "description": "",
+    "id": "this-is-a-feature-file",
+    "keyword": "Feature",
+    "uri": "file:src/test/features/BritannicaTestScenario.feature",
+    "tags": []
+  }
+]

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test suite" parallel="classes" thread-count="1">
+
+    <test name="Test">
+        <classes>
+            <class name="com.launcher.SOLID_BritannicaTestScenarioLauncher"/>
+        </classes>
+    </test>
+</suite>
